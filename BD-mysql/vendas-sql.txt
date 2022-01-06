@@ -1,0 +1,144 @@
+
+# 2- a) Crie a tabela vendedor com seus atributos.
+Create table vendedor(
+id_vendedor int auto_increment primary key,
+nome_vendedor varchar(60) not null,
+email_vendedor varchar(60) not null,
+telefone_vendedor varchar(60) not null
+);
+
+# 2-b) Crie a tabela cliente com seus atributos.
+Create table cliente(
+id_cliente int auto_increment primary key,
+nome_cliente varchar(60) not null,
+email_cliente varchar(60) not null,
+telefone_cliente varchar(60) not null
+);
+
+# 2-c) Crie a tabela produto com seus atributos.
+Create table produto(
+id_produto int auto_increment primary key,
+descrição_produto varchar(60) not null,
+preco_produto varchar(60) not null,
+codigo_produto int not null
+);
+
+# 2-d) Crie a tabela pedido_compra com seus atributos e realize o relacionamento que ela possui com as tabelas (produto, vendedor e cliente).
+
+Create table pedido_compra(
+produto_id int not null,
+cliente_id int not null,
+vendedor_id int not null,
+data_pedido date not null,
+id_pedido int auto_increment primary key,
+FOREIGN KEY(produto_id) REFERENCES produto(id_produto),
+FOREIGN KEY(cliente_id) REFERENCES cliente(id_cliente),
+FOREIGN KEY(vendedor_id) REFERENCES vendedor(id_vendedor)
+);
+
+
+# 3- Inserir 10 registros na tabela vendedor
+insert into vendedor (nome_vendedor, email_vendedor, telefone_vendedor)value ('Alexandre', 'Alexandre@tcs.com', '(11) 97102-7117');
+insert into vendedor (nome_vendedor, email_vendedor, telefone_vendedor)value ('Pedro', 'Pedro@tcs.com', '(18) 3525-8614');
+insert into vendedor (nome_vendedor, email_vendedor, telefone_vendedor)value ('Ronaldo', 'Ronaldo@tcs.com', '(12) 2589-5625');
+insert into vendedor (nome_vendedor, email_vendedor, telefone_vendedor)value ('Paulo', 'Paulo@tcs.com', '(13) 3822-0532');
+insert into vendedor (nome_vendedor, email_vendedor, telefone_vendedor)value ('Nathalia', 'Nathalia@tcs.com', '(19) 3647-3122');
+insert into vendedor (nome_vendedor, email_vendedor, telefone_vendedor)value ('Nathalia', 'Nathalia@tcs.com', '(19) 3647-3122');
+insert into vendedor (nome_vendedor, email_vendedor, telefone_vendedor)value ('Ana', 'Ana@tcs.com', '(18) 3116-5032');
+insert into vendedor (nome_vendedor, email_vendedor, telefone_vendedor)value ('Alexandra', 'Alexandra.com', '(17) 3592-3419');
+insert into vendedor (nome_vendedor, email_vendedor, telefone_vendedor)value ('Penha', 'Penha.com', '(19) 3937-3166');
+insert into vendedor (nome_vendedor, email_vendedor, telefone_vendedor)value ('Paulo', 'Paulo@tcs.com', '(13) 3822-0532');
+select * from vendedor;
+
+#4- Inserir 10 registros na tabela cliente.
+insert into cliente (nome_cliente, email_cliente, telefone_cliente) 
+value ('Lipun', 'Lipun@cliente.com', '(13) 2240-8953');
+insert into cliente (nome_cliente, email_cliente, telefone_cliente) 
+value ('Ryude', 'Ryude@cliente.com', '(14) 2558-6724');
+insert into cliente (nome_cliente, email_cliente, telefone_cliente) 
+value ('Reora', 'Reora@cliente.com', '(11) 2422-4827');
+insert into cliente (nome_cliente, email_cliente, telefone_cliente) 
+value ('willian', 'willian@gmail.com', '9999-9999');
+insert into cliente (nome_cliente, email_cliente, telefone_cliente) 
+value ('Rusha', 'Rusha@cliente.com', '(14) 2780-75584');
+insert into cliente (nome_cliente, email_cliente, telefone_cliente) 
+value ('Jotan', 'Jotan@cliente.com', '(15) 2663-9367');
+insert into cliente (nome_cliente, email_cliente, telefone_cliente) 
+value ('Feimmi', 'Feimmi@cliente.com', '(15) 2051-0712');
+insert into cliente (nome_cliente, email_cliente, telefone_cliente) 
+value ('Garxai', 'Garxai@cliente.com', '(14) 2997-1256');
+insert into cliente (nome_cliente, email_cliente, telefone_cliente) 
+value ('Lipun', 'Lipun@cliente.com', '(13) 2240-8953');
+insert into cliente (nome_cliente, email_cliente, telefone_cliente) 
+value ('Lavos', 'Lavos@cliente.com', '(12) 3214-6043');
+
+select * from cliente;
+
+#5- Inserir 10 registros na tabela produto. 
+insert into produto (descrição_produto, preco_produto, codigo_produto)value ('Notebook Dell Inspiron i15-3501-A10P 15.6" HD', 'R$2.696,07', '4498');
+insert into produto (descrição_produto, preco_produto, codigo_produto)value('Notebook Lenovo Ultrafino ideapad S145 i5-1035G1', 'R$ 4.751,00', '5484');
+insert into produto (descrição_produto, preco_produto, codigo_produto)value('Notebook Acer Aspire 5 A515-54-55L0 Core I5 –10210U 8GB', 'R$3.999,00', '4587');
+insert into produto (descrição_produto, preco_produto, codigo_produto)value('Notebook Samsung Core I5-1135G7, 11 Geração, ', 'R$3.486,57', '4945');
+insert into produto (descrição_produto, preco_produto, codigo_produto)value('Notebook ASUS VivoBook X543UA-DM3458T INTEL CORE I5 8250U ', 'R$4.379,99', '7536');
+insert into produto (descrição_produto, preco_produto, codigo_produto)value('Notebook Dell Inspiron i15-3501-A25P 15.6\" HD 10ª Geração', 'R$3.029,55', '4865');
+insert into produto (descrição_produto, preco_produto, codigo_produto)value('Samsung Book Intel® Core™ i3-1115G4', 'R$2.789,07', '9514');
+insert into produto (descrição_produto, preco_produto, codigo_produto)value('Notebook Samsung Book I5 8GB 512GB SSD 15.6', 'R$4.530,68', '4598');
+insert into produto (descrição_produto, preco_produto, codigo_produto)value('Notebook ASUS VivoBook X543UA-GQ3430T', 'R$2.899,01', '4498');
+insert into produto (descrição_produto, preco_produto, codigo_produto)value('Notebook Dell Inspiron i15-3501-A10P 15.6\" HD', 'R$2.696,07', '4498');
+select * from produto;
+
+# 6- Inserir 10 registros na tabela pedido_compra.
+insert into pedido_compra (produto_id, cliente_id, vendedor_id, data_pedido) 
+value (5,5,8, CURDATE());
+insert into pedido_compra (produto_id, cliente_id, vendedor_id, data_pedido) 
+value (8, 3, 3, CURDATE());
+insert into pedido_compra (produto_id, cliente_id, vendedor_id, data_pedido) 
+value (10, 9, 3, CURDATE());
+insert into pedido_compra (produto_id, cliente_id, vendedor_id, data_pedido) 
+value (7, 5, 2, CURDATE());
+insert into pedido_compra (produto_id, cliente_id, vendedor_id, data_pedido) 
+value (1, 1, 1, CURDATE());
+insert into pedido_compra (produto_id, cliente_id, vendedor_id, data_pedido) 
+value (4, 9, 3, CURDATE());
+insert into pedido_compra (produto_id, cliente_id, vendedor_id, data_pedido) 
+value (2, 3, 5, CURDATE());
+insert into pedido_compra (produto_id, cliente_id, vendedor_id, data_pedido) 
+value (4, 2, 6, CURDATE());
+insert into pedido_compra (produto_id, cliente_id, vendedor_id, data_pedido) 
+value (1, 10, 10, CURDATE());
+insert into pedido_compra (produto_id, cliente_id, vendedor_id, data_pedido) 
+value (5, 5, 1, CURDATE());
+
+select * from pedido_compra;
+
+# 7- Selecionar todos os vendedores em ordem alfabética pela coluna nome_vendedor
+Select * from vendedor order by nome_vendedor asc;
+
+# 8- Selecionar todos os clientes em ordem decrescente pelo id_cliente.
+Select * from cliente order by id_cliente desc;
+
+#9- Atualizar o cliente de id 5 para os seguintes dados nome=willian, email = willian@gmail.com, telefone = 9999-9999
+
+update cliente set nome_cliente = 'willian', email_cliente ="willian@gmail.com", telefone_cliente ="9999-9999"
+where id_cliente = 5;
+select * from cliente where id_cliente = 5;
+
+
+# 10-Selecionar todos os pedidos de compras.
+select * from pedido_compra;
+
+# 11-Selecionar todos os pedidos de compras e mostrar (nome_vendedor, nome_cliente, descrição_produto, data_pedido)
+
+select nome_vendedor, nome_cliente, descrição_produto, data_pedido from pedido_compra
+join vendedor on pedido_compra.id_pedido = vendedor.id_vendedor
+join cliente on pedido_compra.id_pedido = cliente.id_cliente
+join produto on pedido_compra.id_pedido = produto.id_produto;
+
+# 12- Criar view
+Create view vwpedidos
+select nome_vendedor, nome_cliente, descrição_produto, data_pedido from pedido_compra
+join vendedor on pedido_compra.id_pedido = vendedor.id_vendedor
+join cliente on pedido_compra.id_pedido = cliente.id_cliente
+join produto on pedido_compra.id_pedido = produto.id_produto;
+
+
