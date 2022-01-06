@@ -135,7 +135,7 @@ join cliente on pedido_compra.id_pedido = cliente.id_cliente
 join produto on pedido_compra.id_pedido = produto.id_produto;
 
 # 12- Criar view
-Create view vwpedidos
+Create view vwpedidos as
 select nome_vendedor, nome_cliente, descrição_produto, data_pedido from pedido_compra
 join vendedor on pedido_compra.id_pedido = vendedor.id_vendedor
 join cliente on pedido_compra.id_pedido = cliente.id_cliente
